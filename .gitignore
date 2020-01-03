@@ -1,0 +1,8 @@
+.vscode
+config
+tests
+logs
+src/__pycache__
+dist
+build
+*.tar.gz
