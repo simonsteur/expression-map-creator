@@ -1,0 +1,4 @@
+{
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": ["--disable=invalid-name,broad-except,line-too-long,bad-continuation"]
+}
