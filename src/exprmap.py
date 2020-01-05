@@ -4,11 +4,10 @@ import xml.etree.ElementTree as ET
 
 def createExpressionMap(articulations):
     """createExpressionMapXml(dict()) -> dict()
-    builds an expression map dict based on passed in articulations"""
-    mainEl = ET.Element('InstrumentMap')
+    builds an expression map based on passed in articulations, then writes that expressionmap to file to be imported into cubase"""
 
     for instrument in articulations['map']:
-
+        mainEl = ET.Element('InstrumentMap')
         ET.SubElement(mainEl, 'string', attrib={'name':"name", 'value':str(instrument), 'wide':'true'})
         svMemberEl = ET.SubElement(mainEl, 'member', attrib={'name':"slotvisuals"})
         ET.SubElement(svMemberEl, 'int', attrib={'name':"ownership", 'value':'1'})
@@ -32,11 +31,11 @@ def createExpressionMap(articulations):
         #slots
         for i, articulation in enumerate(articulations['map'][instrument], start=1):
 
-            #set defaults if no specifics in articulations 
+            #set defaults if no specifics in articulations
             art = articulations['map'][instrument][articulation]
             keyswitch = art['ks']
             try:
-                channel = (art['chann'] - 1)
+                channel = (art['chan'] - 1)
             except KeyError:
                 channel = "-1"
             try:
@@ -69,11 +68,11 @@ def createExpressionMap(articulations):
                 transpose = "0"
             try:
                 remote = art['remote']
-            except:
+            except KeyError:
                 remote = (i - 1)
 
-            elPSoundSlot = ET.SubElement(sMemberEl, 'obj', attrib={'class':"PSoundSlot", 'ID':"1"}) 
-            elThruTrigger = ET.SubElement(elPSoundSlot, 'obj', attrib={'class':"PSlotThruTrigger", 'name':"remote", 'id':"1"})
+            elPSoundSlot = ET.SubElement(sListEl, 'obj', attrib={'class':"PSoundSlot", 'ID':"1"}) 
+            elThruTrigger = ET.SubElement(elPSoundSlot, 'obj', attrib={'class':"PSlotThruTrigger", 'name':"remote", 'ID':"1"})
             ET.SubElement(elThruTrigger, 'int', attrib={'name':"status", 'value':"144"})
             ET.SubElement(elThruTrigger, 'int', attrib={'name':"data1", 'value':str(remote)})
 
@@ -127,8 +126,7 @@ def createExpressionMap(articulations):
             ET.SubElement(elMemberName, 'string', attrib={'name':"s", 'value':str(articulation), 'wide':"true"})
             ET.SubElement(elPSoundSlot, 'int', attrib={'name':"color", 'value':str(i)})
 
-    data = ET.tostring(mainEl, encoding='unicode', method='xml')
-    print(data)
-    myfile = open("items2.expressionmap", "w")
-    myfile.write(data)
-    return articulations
+        data = ET.tostring(mainEl, encoding='unicode', method='xml')
+        fileName = str(instrument) + ".expressionmap"
+        expmap = open(fileName, "w")
+        expmap.write(data)

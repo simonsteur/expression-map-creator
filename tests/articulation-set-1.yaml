@@ -1,4 +1,8 @@
-articulations:
+map:
   SSS Violins 1:
-    legato: C-2
-    longs: C#-2
+    legato:
+      ks: 0
+      chan: 1
+    longs:
+      ks: 1
+      chan: 2
