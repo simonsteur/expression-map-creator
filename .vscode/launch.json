@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": ["--articulations", "/Users/simste/gitrepos/stools/expression-map-creator/tests/articulation-set-1.yaml"],
+            "args": ["--articulations", "C:/Users/Simon/gitrepos/expression-map-creator/tests/articulation-set-1.yaml"],
             "console": "integratedTerminal"
         }
     ]

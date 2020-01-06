@@ -1,8 +1,0 @@
-map:
-  SSS Violins 1:
-    legato:
-      ks: 0
-      chan: 1
-    longs:
-      ks: 1
-      chan: 2
