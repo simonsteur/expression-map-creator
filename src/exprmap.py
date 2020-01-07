@@ -19,7 +19,6 @@ def createExpressionMap(articulations):
         ET.SubElement(elControllerMember, 'int', attrib={'name':"ownership", 'value':'1'})
         #slotvisuals
         for articulation in articulations['map'][instrument]:
-            print(articulation)
             usvEl = ET.SubElement(svListEl, 'obj', attrib={'class':"USlotVisuals", 'ID':"1"})
             ET.SubElement(usvEl, 'int', attrib={'name':"displaytype", 'value':"1"})
             ET.SubElement(usvEl, 'int', attrib={'name':"articulationtype", 'value':"1"})
@@ -33,7 +32,10 @@ def createExpressionMap(articulations):
 
             #set defaults if no specifics in articulations
             art = articulations['map'][instrument][articulation]
-            keyswitch = art['ks']
+            try:
+                keyswitch = art['ks']
+            except KeyError:
+                keyswitch = "0"
             try:
                 channel = (art['chan'] - 1)
             except KeyError:
@@ -71,7 +73,7 @@ def createExpressionMap(articulations):
             except KeyError:
                 remote = (i - 1)
 
-            elPSoundSlot = ET.SubElement(sListEl, 'obj', attrib={'class':"PSoundSlot", 'ID':"1"}) 
+            elPSoundSlot = ET.SubElement(sListEl, 'obj', attrib={'class':"PSoundSlot", 'ID':"1"})
             elThruTrigger = ET.SubElement(elPSoundSlot, 'obj', attrib={'class':"PSlotThruTrigger", 'name':"remote", 'ID':"1"})
             ET.SubElement(elThruTrigger, 'int', attrib={'name':"status", 'value':"144"})
             ET.SubElement(elThruTrigger, 'int', attrib={'name':"data1", 'value':str(remote)})
@@ -122,7 +124,7 @@ def createExpressionMap(articulations):
             ET.SubElement(elsv, 'string', attrib={'name':"description", 'value':str(articulation), 'wide':"true"})
             ET.SubElement(elsv, 'int', attrib={'name':"group", 'value':"0"})
 
-            elMemberName = ET.SubElement(elPSoundSlot, 'member',  attrib={'name':"name"})
+            elMemberName = ET.SubElement(elPSoundSlot, 'member', attrib={'name':"name"})
             ET.SubElement(elMemberName, 'string', attrib={'name':"s", 'value':str(articulation), 'wide':"true"})
             ET.SubElement(elPSoundSlot, 'int', attrib={'name':"color", 'value':str(i)})
 
