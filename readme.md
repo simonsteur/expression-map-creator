@@ -37,7 +37,7 @@ You can specify several parameters per articulation, this way you can control th
 
 | parameter     | usage                         | default |
 | :-------------|:----------------------------- | :------ |
-| ks            | midi note number for the articulations keyswitch (example: **C-2 = 0**) | 0
+| ks            | midi note number for the articulations keyswitch (example: C-2 = 0) | 0
 | chan          | midi channel | 1
 | vel           | velocity  | 1
 | length        | length | 1
