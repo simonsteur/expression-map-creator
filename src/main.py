@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """main module"""
 from args import args
 from files import readArticulationsFromFile, readArticulationsFromDir
