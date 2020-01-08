@@ -52,9 +52,9 @@ class gui():
         self.outputLabelText.set("Location:" + dest)
         self.textField.config(state='normal')
         self.textField.insert('end', "\nCreating expression maps from selected files..")
-        results = createExpressionMaps(self.selectedFilesList)
+        results = createExpressionMaps(self.selectedFilesList, dest)
         for result in results:
-            self.textField.insert('end', "\nCreated " + str(result))
+            self.textField.insert('end', "\nCreated: " + str(result))
         self.textField.config(state='disabled')
         self.textField.see('end')
 

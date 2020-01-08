@@ -2,15 +2,23 @@
 import xml.etree.ElementTree as ET
 from files import readArticulationsFromFile
 
-def createExpressionMaps(files):
+def createExpressionMaps(files, dest):
     """createExpressionMaps(list()) -> loops thru list of files to create expression maps using the createExpressionMap() function"""
+    createdMaps = list()
     for f in files:
         f = readArticulationsFromFile(f)
-        createExpressionMap(f)
+        results = createExpressionMap(f, dest)
+        if type(results) == list:
+            for result in results:
+                createdMaps.append(result)
+        else:
+            return results
+    return createdMaps
 
-def createExpressionMap(articulations):
+def createExpressionMap(articulations, dest):
     """createExpressionMapXml(dict()) -> dict()
     builds an expression map based on passed in articulations, then writes that expressionmap to file to be imported into cubase"""
+    maps = list()
     for instrument in articulations['map']:
         try:
             mainEl = ET.Element('InstrumentMap')
@@ -137,9 +145,12 @@ def createExpressionMap(articulations):
 
             data = ET.tostring(mainEl, encoding='unicode', method='xml')
             fileName = str(instrument) + ".expressionmap"
+            fileName = str(dest) + "/" + str(fileName)
             expmap = open(fileName, "w")
             expmap.write(data)
-
+            maps.append(fileName)
         except Exception as e:
             print("something went wrong.")
             print(e)
+            return e
+    return maps

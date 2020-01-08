@@ -10,11 +10,11 @@ def main():
     if args.file != "":
         print("Using file to create expression maps")
         f = readArticulationsFromFile(args.file)
-        createExpressionMap(f)
+        createExpressionMap(f, args.dest)
     elif args.dir != "":
         print("Reading files from directory to create expression maps")
         files = readArticulationsFromDir(args.dir)
-        createExpressionMaps(files)
+        createExpressionMaps(files, args.dest)
 
 if __name__ == "__main__":
     main()
