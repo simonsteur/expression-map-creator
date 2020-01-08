@@ -1,6 +1,6 @@
 # Expression Map Creator
 
-Expression Map Creator (EMC) is a tool for quickly creating expression maps for use in Cubase. 
+Expression Map Creator (EMC) is a tool for quickly creating expression maps for use in Cubase.
 
 The reason for the creation of this tool is to save time setting up and maintaining expression maps, which is a cumbersome manual process.
 To achieve this EMC loads instruments and the articulations (+ additional information like keyswitches, midi channel, etc.) from a single or a collection of yaml files. This allows you to quickly copy those yaml files and adjust per instrument/library. You can use that same file to do any updates to your expression maps, and then just regenerate the expression map for it.
@@ -11,15 +11,11 @@ To achieve this EMC loads instruments and the articulations (+ additional inform
 
 The latest versions of EMC are compiled for both windows and OSX so that you may just download a single binary file, you can find those here: (INSERT LINK)
 
-<!-- ### clone git repo and run source code
-
-You may also clone this git repo and run the source code directly, just make sure you have atleast python version 3.5 installed. -->
-
 ## How to use
 
 Create one or multiple yaml files that maps the instruments and articulations you want to create an expression map for. Use the following syntax:
 
-```language
+```YAML
 map:
   SSS Violins 1:
     legato:
@@ -30,6 +26,8 @@ map:
       ks: 1
       chan: 2
 ```
+
+You can now load in the files you created into EMP and create your expression maps.
 
 ### Parameters
 
@@ -63,3 +61,15 @@ You can specify several parameters per articulation, this way you can control th
 | 6 | 96 | 97 | 98 | 99 | 100 | 101 | 102 | 103 | 104 | 105 | 106 | 107 |
 | 7 | 108 | 109 | 110 | 111 | 112 | 113 | 114 | 115 | 116 | 117 | 118 | 119
 | 8 | 120 | 121 | 122 | 123 | 124 | 125 | 126 | 127
+
+## Using the cli
+
+```language
+./expression-map-creator --file PATH_TO_FILE
+```
+
+to load in all yaml files in a specific directory:
+
+```language
+./expression-map-creator --dir PATH_TO_DIR
+```

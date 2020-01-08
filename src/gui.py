@@ -1,3 +1,4 @@
+"""GUI module providing the .. GUI"""
 from tkinter import Tk, filedialog, StringVar, Label, Button, Text
 from exprmap import createExpressionMaps
 
