@@ -5,11 +5,8 @@ from files import readArticulationsFromFile
 def createExpressionMaps(files):
     """createExpressionMaps(list()) -> loops thru list of files to create expression maps using the createExpressionMap() function"""
     for f in files:
-        print(f)
-    
-    return files
-        #f = readArticulationsFromFile(f)
-        #createExpressionMap(f)
+        f = readArticulationsFromFile(f)
+        createExpressionMap(f)
 
 def createExpressionMap(articulations):
     """createExpressionMapXml(dict()) -> dict()

@@ -1,5 +1,5 @@
 """GUI module providing the .. GUI"""
-from tkinter import Tk, filedialog, StringVar, Label, Button, Text
+from tkinter import Tk, filedialog, StringVar, Label, Button, Text, Scrollbar
 from exprmap import createExpressionMaps
 
 class gui():
@@ -16,13 +16,16 @@ class gui():
         self.selectedFilesLabel.grid(row=4, sticky='W')
 
         self.textField = Text(borderwidth=0)
-        self.textField.config(state='disabled')
+        yScrollbar = Scrollbar(master)
+        yScrollbar.grid(row=3, column=1, sticky='N'+'S')
+        self.textField.config(state='disabled', yscrollcommand=yScrollbar.set)
         self.textField.grid(row=3, sticky='W')
+        yScrollbar.config(command=self.textField.yview)
 
-        self.browse_button = Button(text="Select Files", command=self.selectFiles)
+        self.browse_button = Button(text="Select Files", borderwidth="0", activebackground="gray80", command=self.selectFiles)
         self.browse_button.grid(row=0, sticky='W')
 
-        self.createExprMapButton = Button(text="Create Expression Maps", command=self.createExpMap)
+        self.createExprMapButton = Button(text="Create Expression Maps", borderwidth="0", activebackground="gray80", command=self.createExpMap)
         self.createExprMapButton.config(state='disabled')
         self.createExprMapButton.grid(row=0, column=0, sticky='E')
 
@@ -41,6 +44,7 @@ class gui():
         self.selectedFilesLabelText.set(str(len(filenames)) + " file(s) selected")
         self.textField.config(state='disabled')
         self.createExprMapButton.config(state='normal')
+        self.textField.see('end')
 
     def createExpMap(self):
         """createExpMap allows a user to select the output directory and will then create the expression maps from the loaded yaml files"""
@@ -50,8 +54,9 @@ class gui():
         self.textField.insert('end', "\nCreating expression maps from selected files..")
         results = createExpressionMaps(self.selectedFilesList)
         for result in results:
-            self.textField.insert('end',"\nCreated " + str(result))
+            self.textField.insert('end', "\nCreated " + str(result))
         self.textField.config(state='disabled')
+        self.textField.see('end')
 
 root = Tk()
 gui = gui(root)
