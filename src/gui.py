@@ -38,6 +38,7 @@ class gui():
         """selectFiles handles selection of files to turn into expression maps"""
         self.textField.config(state='normal')
         self.textField.delete('1.0', 'end')
+        self.selectedFilesList = []
         filenames = filedialog.askopenfilenames()
         for f in filenames:
             self.selectedFilesList.append(f)
