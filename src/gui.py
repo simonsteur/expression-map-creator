@@ -3,6 +3,7 @@ from tkinter import Tk, filedialog, StringVar, Label, Button, Text, Scrollbar
 from exprmap import createExpressionMaps
 
 class gui():
+    """gui class"""
     def __init__(self, master):
         """GUI class"""
         self.master = master

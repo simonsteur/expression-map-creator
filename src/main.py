@@ -15,9 +15,9 @@ def main():
         print("Reading files from directory to create expression maps")
         files = readArticulationsFromDir(args.dir)
         createExpressionMaps(files, args.dest)
+    else:
+        #start gui
+        root.mainloop()
 
 if __name__ == "__main__":
     main()
-
-#start gui
-root.mainloop()
