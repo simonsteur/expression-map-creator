@@ -1,0 +1,11 @@
+map:
+  Celli:
+    spicatto: 
+      ks: 0
+      chan: 1
+      max-vel: 60
+  Basses:
+    spicatto:
+      ks: 0
+      chan: 2
+      max-vel: 60

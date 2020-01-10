@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """main module"""
-from gui import root
 from args import args
 from files import readArticulationsFromFile, readArticulationsFromDir
 from exprmap import createExpressionMap, createExpressionMaps
@@ -17,6 +16,7 @@ def main():
         createExpressionMaps(files, args.dest)
     else:
         #start gui
+        from gui import root
         root.mainloop()
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ def createExpressionMaps(files, dest):
     for f in files:
         f = readArticulationsFromFile(f)
         results = createExpressionMap(f, dest)
-        if type(results) == list:
+        if isinstance(results, list):
             for result in results:
                 createdMaps.append(result)
         else:
@@ -152,6 +152,5 @@ def createExpressionMap(articulations, dest):
         except Exception as e:
             print("something went wrong.")
             print(e)
-            return e
+            return str(e)
     return maps
-
