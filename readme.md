@@ -51,6 +51,7 @@ You can specify several parameters per articulation, this way you can control th
 | max-pitch     | maximum pitch | 127
 | transpose     | transpose | 0
 | remote        | keyswitch to assign as remote to the articulation | starts at 0 (C-2), then counts up from there.
+| type          | type of articulation. (attribute or direction) | direction
 
 #### Midi note numbers (C3=60 mapping)
 
