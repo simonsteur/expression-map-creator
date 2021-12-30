@@ -1,5 +1,4 @@
 """files module, deals with loading articulations file"""
-#import os
 import glob
 import yaml
 

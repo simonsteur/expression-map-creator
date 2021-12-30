@@ -7,13 +7,13 @@ To achieve this EMC loads instruments and the articulations (+ additional inform
 
 ## Download
 
-The latest versions of EMC are compiled for both windows and OSX so that you may just download a single binary file.
+The latest versions of EMC are compiled for both windows and OSX (arm64) so that you may just download a single binary file.
 
 ### Windows
 
 (INSERT LINK)
 
-### Mac OSX
+### Mac OSX (only arm64 currently)
 
 (INSERT LINK)
 
@@ -68,6 +68,7 @@ You can specify several parameters per articulation, this way you can control th
 | 6 | 96 | 97 | 98 | 99 | 100 | 101 | 102 | 103 | 104 | 105 | 106 | 107 |
 | 7 | 108 | 109 | 110 | 111 | 112 | 113 | 114 | 115 | 116 | 117 | 118 | 119
 | 8 | 120 | 121 | 122 | 123 | 124 | 125 | 126 | 127
+
 
 <!-- ## Using the cli
 
