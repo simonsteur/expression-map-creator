@@ -45,7 +45,8 @@ class gui():
             self.textField.insert('end', "Selected: " + f + "\n")
         self.selectedFilesLabelText.set(str(len(filenames)) + " file(s) selected")
         self.textField.config(state='disabled')
-        self.createExprMapButton.config(state='normal')
+        if len(filenames) != 0:
+            self.createExprMapButton.config(state='normal')
         self.textField.see('end')
 
     def createExpMap(self):

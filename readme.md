@@ -7,9 +7,19 @@ To achieve this EMC loads instruments and the articulations (+ additional inform
 
 ## Download
 
-The latest versions of EMC are compiled for both windows and OSX so that you may just download a single binary file.
+The latest versions of EMC are compiled for both windows and OSX (arm64) so that you may just download a single binary file.
 
+<<<<<<< HEAD
 You can find these in the release page: https://github.com/simonsteur/expression-map-creator/releases/tag/v1.0.0 
+=======
+### Windows
+
+(INSERT LINK)
+
+### Mac OSX (only arm64 currently)
+
+(INSERT LINK)
+>>>>>>> fedb93ac429c03d1f2ae823224218dca75353a94
 
 ## How to use
 
@@ -45,6 +55,7 @@ You can specify several parameters per articulation, this way you can control th
 | max-pitch     | maximum pitch | 127
 | transpose     | transpose | 0
 | remote        | keyswitch to assign as remote to the articulation | starts at 0 (C-2), then counts up from there.
+| type          | type of articulation. (attribute or direction) | direction
 
 #### Midi note numbers (C3=60 mapping)
 
@@ -61,6 +72,7 @@ You can specify several parameters per articulation, this way you can control th
 | 6 | 96 | 97 | 98 | 99 | 100 | 101 | 102 | 103 | 104 | 105 | 106 | 107 |
 | 7 | 108 | 109 | 110 | 111 | 112 | 113 | 114 | 115 | 116 | 117 | 118 | 119
 | 8 | 120 | 121 | 122 | 123 | 124 | 125 | 126 | 127
+
 
 <!-- ## Using the cli
 

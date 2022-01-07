@@ -34,9 +34,16 @@ def createExpressionMap(articulations, dest):
             #slotvisuals
 
             for articulation in articulations['map'][instrument]:
+                art = articulations['map'][instrument][articulation]
+
+                try:
+                    artType = art['type']
+                except KeyError:
+                    artType = "1"
+
                 usvEl = ET.SubElement(svListEl, 'obj', attrib={'class':"USlotVisuals", 'ID':"1"})
                 ET.SubElement(usvEl, 'int', attrib={'name':"displaytype", 'value':"1"})
-                ET.SubElement(usvEl, 'int', attrib={'name':"articulationtype", 'value':"1"})
+                ET.SubElement(usvEl, 'int', attrib={'name':"articulationtype", 'value':artType})
                 ET.SubElement(usvEl, 'int', attrib={'name':"symbol", 'value':"73"})
                 ET.SubElement(usvEl, 'string', attrib={'name':"text", 'value':str(articulation), 'wide':"true"})
                 ET.SubElement(usvEl, 'string', attrib={'name':"description", 'value':str(articulation), 'wide':"true"})
@@ -87,6 +94,10 @@ def createExpressionMap(articulations, dest):
                     remote = art['remote']
                 except KeyError:
                     remote = (i - 1)
+                try:
+                    artType = art['type']
+                except KeyError:
+                    artType = "1"
 
                 elPSoundSlot = ET.SubElement(sListEl, 'obj', attrib={'class':"PSoundSlot", 'ID':"1"})
                 elThruTrigger = ET.SubElement(elPSoundSlot, 'obj', attrib={'class':"PSlotThruTrigger", 'name':"remote", 'ID':"1"})
@@ -133,7 +144,7 @@ def createExpressionMap(articulations, dest):
                 elsv = ET.SubElement(elsvList, 'obj', attrib={'class':"USlotVisuals", 'ID':"1"})
 
                 ET.SubElement(elsv, 'int', attrib={'name':"displaytype", 'value':"1"})
-                ET.SubElement(elsv, 'int', attrib={'name':"articulationtype", 'value':"1"})
+                ET.SubElement(elsv, 'int', attrib={'name':"articulationtype", 'value':artType})
                 ET.SubElement(elsv, 'int', attrib={'name':"symbol", 'value':"73"})
                 ET.SubElement(elsv, 'string', attrib={'name':"text", 'value':str(articulation), 'wide':"true"})
                 ET.SubElement(elsv, 'string', attrib={'name':"description", 'value':str(articulation), 'wide':"true"})

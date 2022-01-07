@@ -1,0 +1,5 @@
+#requirements.in
+glob2
+pyyaml
+tk
+pyinstaller
