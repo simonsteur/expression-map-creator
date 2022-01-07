@@ -9,13 +9,7 @@ To achieve this EMC loads instruments and the articulations (+ additional inform
 
 The latest versions of EMC are compiled for both windows and OSX so that you may just download a single binary file.
 
-### Windows
-
-(INSERT LINK)
-
-### Mac OSX
-
-(INSERT LINK)
+You can find these in the release page: https://github.com/simonsteur/expression-map-creator/releases/tag/v1.0.0 
 
 ## How to use
 
