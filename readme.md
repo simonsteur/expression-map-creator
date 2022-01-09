@@ -64,14 +64,18 @@ You can specify several parameters per articulation, this way you can control th
 | 8 | 120 | 121 | 122 | 123 | 124 | 125 | 126 | 127
 
 
-<!-- ## Using the cli
+## Run EMC from source code
 
-```language
-./expression-map-creator --file PATH_TO_FILE
+If you wish to run EMC without downloading the compiled binaries you can, just follow the following steps:
+
+Install the pip dependencies as defined in the requirements file. 
+
+```bash
+pip install -r requirements.txt
 ```
 
-to load in all yaml files in a specific directory:
+Execute main.py to launch the gui. You can also pass in arguments to run the tool completely within the cli.
 
-```language
-./expression-map-creator --dir PATH_TO_DIR
-``` -->
+```bash
+python3 /src/main.py
+```
